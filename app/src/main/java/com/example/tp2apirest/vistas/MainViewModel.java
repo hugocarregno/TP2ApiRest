@@ -27,8 +27,8 @@ public class MainViewModel extends ViewModel {
         return lista;
     }
 
-    public void buscarVM(){
-        Call<Resultado> datos = ApiClient.getMyApiInterface().leer();
+    public void buscarVM(String filtro){
+        Call<Resultado> datos = ApiClient.getMyApiInterface().leer(filtro);
         datos.enqueue(new Callback<Resultado>() {
             @Override
             public void onResponse(Call<Resultado> call, Response<Resultado> response) {
@@ -36,7 +36,7 @@ public class MainViewModel extends ViewModel {
                     Resultado resultado = response.body();
                     ArrayList<Provincia> misProvincias = new ArrayList<>();
                     for(Provincia it: resultado.getProvincias()){
-                        //Log.d("message",it+"");
+                       // Log.d("message",it+"");
                         misProvincias.add(it);
                     }
                     lista.postValue(misProvincias);

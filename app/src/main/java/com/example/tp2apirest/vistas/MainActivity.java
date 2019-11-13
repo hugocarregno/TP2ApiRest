@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.tp2apirest.R;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnBuscar;
     private ListView lvResultado;
+    private EditText etFiltro;
     private MainViewModel mvm;
     private ArrayAdapter<Provincia> adapter;
     @Override
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public void inicializar(){
         btnBuscar = findViewById(R.id.btnBuscar);
         lvResultado = findViewById(R.id.lvResultado);
+        etFiltro = findViewById(R.id.etFiltro);
         mvm = ViewModelProviders.of(this).get(MainViewModel.class);
         mvm.getLista().observe(this, new Observer<List<Provincia>>() {
                     @Override
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buscar(View v){
-        mvm.buscarVM();
+        mvm.buscarVM(etFiltro.getText()+"");
     }
 
 }

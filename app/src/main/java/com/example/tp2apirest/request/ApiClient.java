@@ -25,7 +25,7 @@ public class ApiClient {
     public interface MyApiInterface{
         //@GET("municipios?provincia="+prov)
         @GET("provincias?campos=id,nombre")
-        Call<Resultado> leer();
+        Call<Resultado> leer(@Query("nombre") String filtro);
 
     }
 }

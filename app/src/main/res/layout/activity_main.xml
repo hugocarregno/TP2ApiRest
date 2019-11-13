@@ -13,6 +13,13 @@
             android:layout_height="wrap_content"
             android:onClick="buscar"
             android:text="@string/buscar" />
+
+    <EditText
+        android:id="@+id/etFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="text" />
     <ListView
         android:id="@+id/lvResultado"
         android:layout_width="match_parent"
