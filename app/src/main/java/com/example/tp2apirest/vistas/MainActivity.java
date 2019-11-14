@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buscar(View v){
-        mvm.buscarVM(etFiltro.getText()+"");
+        mvm.buscarVM(etFiltro.getText().toString().toLowerCase());
     }
 
 }

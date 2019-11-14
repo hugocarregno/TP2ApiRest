@@ -37,7 +37,7 @@ public class MainViewModel extends ViewModel {
                     ArrayList<Provincia> misProvincias = new ArrayList<>();
                     for(Provincia it: resultado.getProvincias()){
                         //Log.d("message",filtro+"");
-                        if(filtro.contains(it.getNombre())){
+                        if(it.getNombre().toLowerCase().contains(filtro)){
                             //Log.d("message",filtro+"");
                             misProvincias.add(it);
                         }
